@@ -72,6 +72,6 @@ def watchDirectory(path):
     observer.join()    # waits for the observer thread to finish before ending the script
 
 
-dirPath = '' # Enter the directory which you want to organize
+dirPath = input('Enter the directory path you want to organize') # eg:- /Users/xyzuser/Downloads
 organizeFiles(dirPath)
 watchDirectory(dirPath)
