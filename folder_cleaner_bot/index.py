@@ -2,6 +2,7 @@ import os
 import shutil
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+import time
 
 # Define file extensions for each category (add more if required)
 FILE_TYPES = {
@@ -15,8 +16,8 @@ def organizeFiles(dirPath):
     try:
         # return if given directory path doesn't exist
         if not os.path.exists(dirPath):
-            print(f'The given director: {dirPath} does not exist')
-            return
+            print(f'The given directory: {dirPath} does not exist')
+            return False
         
         # Create subfolders for categories if they don't exist
         for folder in FILE_TYPES.keys():
@@ -38,10 +39,12 @@ def organizeFiles(dirPath):
                     print(f'Moved the file {file} to {folder} folder')
                     break
             else:
-                print(f'File {file} does not match any category and hence not moved')        
+                print(f'File {file} does not match any category and hence not moved')
+        return True        
 
     except Exception as e:
-        print(f'Some error occurred: {e}');  
+        print(f'Some error occurred: {e}');
+        return False  
 
 
 class DirectoryHandler(FileSystemEventHandler):
@@ -72,6 +75,6 @@ def watchDirectory(path):
     observer.join()    # waits for the observer thread to finish before ending the script
 
 
-dirPath = input('Enter the directory path you want to organize') # eg:- /Users/xyzuser/Downloads
-organizeFiles(dirPath)
-watchDirectory(dirPath)
+dirPath = input('Enter the directory path you want to organize: ') # eg:- /Users/xyzuser/Downloads
+if organizeFiles(dirPath):
+    watchDirectory(dirPath)
