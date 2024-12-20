@@ -68,7 +68,7 @@ def watchDirectory(path):
     print(f"Watching directory: {path}")
     try:
         while True:
-            pass  # Keep the script running
+            time.sleep(10)  # Keep the script running
     except KeyboardInterrupt:
         observer.stop()
         print("\nStopped watching directory.")
