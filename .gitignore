@@ -1,1 +1,4 @@
 /3_email_sender/.env
+/5_calendar_automation/credentials.json
+/5_calendar_automation/token.json
+/5_calendar_automation/.env
