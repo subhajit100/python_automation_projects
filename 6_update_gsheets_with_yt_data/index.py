@@ -67,6 +67,7 @@ def updateSheetsWithYtLinks(service, startCell, dataList):
 # the below method will get the dataList from youtube api as a method parameter, and will update the tokens, and then gives access to google sheets.
 def manageGoogleSheets(dataList):
   creds = None
+  service = None
   # The file token.json stores the user's access and refresh tokens, and is
   # created automatically when the authorization flow completes for the first
   # time.
@@ -87,9 +88,10 @@ def manageGoogleSheets(dataList):
 
     try:
        service = build("sheets", "v4", credentials=creds)
-       updateSheetsWithYtLinks(service, 'E6', dataList)
     except HttpError as err:
-       print(err)
+       print(err)    
+    if service is not None:
+        updateSheetsWithYtLinks(service, 'E6', dataList)   
 
 # This method will call the youtube API and list the title and link to all the youtube videos for a give playlist (given playListId as method params)          
 def getYoutubePlaylistData(playListId):
@@ -126,9 +128,8 @@ def getYoutubePlaylistData(playListId):
 # This is the main method which is called when the file runs.
 def main():
   try:
-    playListId = 'PLTAENWuWDOFZIksY0EyCIexy3pn9Tegd9'
+    playListId = 'PLTAENWuWDOFZIksY0EyCIexy3pn9Tegd9' # Add any playlist id from youtube
     dataList = getYoutubePlaylistData(playListId)
-    print(dataList)
     manageGoogleSheets(dataList)
   except HttpError as err:
     print(err)
