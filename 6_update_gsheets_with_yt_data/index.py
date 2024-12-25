@@ -20,7 +20,6 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 # The ID and range of the spreadsheet to edit.
 SPREADSHEET_ID = "1hOAqrnjkwksty6eqzakyjrkpZEEQWAkMkRreBdiE5f0"
-SAMPLE_RANGE_NAME = "DSAlist!A2"
 
 # This method will update the google sheet with youtube links from dataList
 def updateSheetsWithYtLinks(service, startCell, dataList):
