@@ -2,3 +2,6 @@
 /5_calendar_automation/credentials.json
 /5_calendar_automation/token.json
 /5_calendar_automation/.env
+/6_update_gsheets_with_yt_data/.env
+/6_update_gsheets_with_yt_data/credentials.json
+/6_update_gsheets_with_yt_data/token.json
