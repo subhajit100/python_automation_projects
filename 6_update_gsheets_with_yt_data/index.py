@@ -10,7 +10,7 @@ from googleapiclient.errors import HttpError
 # Load environment variables from .env file
 load_dotenv()
 
-YOUTUB_API_KEY = os.getenv('YOUTBUE_API_KEY')
+YOUTUB_API_KEY = os.getenv('YOUTUBE_API_KEY')
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
