@@ -10,7 +10,7 @@ from googleapiclient.errors import HttpError
 # Load environment variables from .env file
 load_dotenv()
 
-YOUTUB_API_KEY = os.getenv('YOUTUBE_API_KEY')
+YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -93,7 +93,7 @@ def manageGoogleSheets(dataList):
 # This method will call the youtube API and list the title and link to all the youtube videos for a give playlist (given playListId as method params)          
 def getYoutubePlaylistData(playListId):
    # Build the YouTube API client
-    youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=YOUTUB_API_KEY)
+    youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=YOUTUBE_API_KEY)
     
     # List to store video details
     videos = []
